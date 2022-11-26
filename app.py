@@ -107,12 +107,13 @@ def add_loc():
         "*" : "/",
         "#" : "\""
     }
-    for key in letters:
-        replace = letters[key]
-        loc.replace(key, replace)
+    str = ""
+    for element in loc:
+        str += letters[element]
+
     restaurant = Restaurant()
     restaurant.name = "name"
-    restaurant.street_address = loc
+    restaurant.street_address = str
     restaurant.description = "description"
     db.session.add(restaurant)
     db.session.commit()
