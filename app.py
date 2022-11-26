@@ -40,6 +40,19 @@ def index():
     restaurants = Restaurant.query.all()    
     return render_template('index.html', restaurants=restaurants)
 
+@app.route('/', methods=['POST'])
+@csrf.exempt
+def add_loc():
+    loc = request.get_json()
+    loc = loc['location']
+    restaurant = Restaurant()
+    restaurant.name = "name"
+    restaurant.street_address = loc
+    restaurant.description = "description"
+    db.session.add(restaurant)
+    db.session.commit()
+    return "{\"food\": \"pizza\"}"
+
 @app.route('/<int:id>', methods=['GET'])
 def details(id):
     restaurant = Restaurant.query.where(Restaurant.id == id).first()
