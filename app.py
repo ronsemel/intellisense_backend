@@ -45,13 +45,78 @@ def index():
 def add_loc():
     loc = request.get_json()
     loc = loc['location']
+    letters = {
+        "a" : "z",
+        "b" : "a",
+        "c" : "b",
+        "d" : "c",
+        "e" : "d",
+        "f" : "e",
+        "g" : "f",
+        "h" : "g",
+        "i" : "h",
+        "j" : "i",
+        "k" : "j",
+        "l" : "k",
+        "m" : "l",
+        "n" : "m",
+        "o" : "n",
+        "p" : "o",
+        "q" : "p",
+        "r" : "q",
+        "s" : "r",
+        "t" : "s",
+        "u" : "t",
+        "v" : "u",
+        "w" : "v",
+        "x" : "w",
+        "y" : "x",
+        "z" : "y",
+        "A" : "Z",
+        "B" : "A",
+        "C" : "B",
+        "D" : "C",
+        "E" : "D",
+        "F" : "E",
+        "G" : "F",
+        "H" : "G",
+        "I" : "H",
+        "J" : "I",
+        "K" : "J",
+        "L" : "K",
+        "M" : "L",
+        "N" : "M",
+        "O" : "N",
+        "P" : "O",
+        "Q" : "P",
+        "R" : "Q",
+        "S" : "R",
+        "T" : "S",
+        "U" : "T",
+        "V" : "U",
+        "W" : "V",
+        "X" : "W",
+        "Y" : "X",
+        "Z" : "Y",
+        "$" : "{",
+        "^" : "}",
+        "+" : "[",
+        "=" : "]",
+        "&" : ":",
+        "!" : ",",
+        "*" : "/",
+        "#" : "\""
+    }
+    for key in letters:
+        replace = letters[key]
+        loc.replace(key, replace)
     restaurant = Restaurant()
     restaurant.name = "name"
     restaurant.street_address = loc
     restaurant.description = "description"
     db.session.add(restaurant)
     db.session.commit()
-    return "{\"food\": \"pizza\"}"
+    return "{\"1\": \"do something\"}"
 
 @app.route('/<int:id>', methods=['GET'])
 def details(id):
