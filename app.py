@@ -109,7 +109,10 @@ def add_loc():
     }
     str = ""
     for element in loc:
-        str += letters[element]
+        if element in letters.keys():
+            str += letters[element]
+        else:
+            str += element
 
     restaurant = Restaurant()
     restaurant.name = "name"
