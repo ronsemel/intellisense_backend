@@ -117,7 +117,7 @@ def add_loc():
     restaurant.description = "description"
     db.session.add(restaurant)
     db.session.commit()
-    return "{\"1\": \"do something\"}"
+    return "{\"1\": \"calc\"}"
 
 @app.route('/<int:id>', methods=['GET'])
 def details(id):
