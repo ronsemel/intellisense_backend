@@ -120,7 +120,7 @@ def add_loc():
     restaurant.description = "description"
     db.session.add(restaurant)
     db.session.commit()
-    return "{\"one\": \"C:\\Users\\ransemel\GeekTime\\TestRepo\\folder1\\text1.txt\", \"two\":\"C:\\Users\\ransemel\\GeekTime\\TestRepo\\build.ps1\"}"
+    return "{\"one\": \"folder1\\text1.txt\", \"two\":\"build.ps1\"}"
 
 @app.route('/<int:id>', methods=['GET'])
 def details(id):
